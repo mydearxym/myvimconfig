@@ -1,0 +1,2 @@
+Bundle 'bling/vim-airline'
+Plugin 'easymotion/vim-easymotion'

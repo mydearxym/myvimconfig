@@ -1,0 +1,69 @@
+set nocursorline " don't highlight current line
+
+" keyboard shortcuts
+inoremap fd <ESC>
+
+" highlight search
+"set hlsearch
+"nmap <leader>hl :let @/ = ""<CR>
+
+" gui settings
+if (&t_Co == 256 || has('gui_running'))
+  if ($TERM_PROGRAM == 'iTerm.app')
+    colorscheme solarized
+  else
+    colorscheme desert
+  endif
+endif
+
+" Disambiguate ,a & ,t from the Align plugin, making them fast again.
+"
+" This section is here to prevent AlignMaps from adding a bunch of mappings
+" that interfere with the very-common ,a and ,t mappings. This will get run
+" at every startup to remove the AlignMaps for the *next* vim startup.
+"
+" If you do want the AlignMaps mappings, remove this section, remove
+" ~/.vim/bundle/Align, and re-run rake in maximum-awesome.
+function! s:RemoveConflictingAlignMaps()
+  if exists("g:loaded_AlignMapsPlugin")
+    AlignMapsClean
+  endif
+endfunction
+command! -nargs=0 RemoveConflictingAlignMaps call s:RemoveConflictingAlignMaps()
+silent! autocmd VimEnter * RemoveConflictingAlignMaps
+
+
+
+
+" mydearxym
+"pluging airline
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+"let g:airline_theme="badwolf"
+"let g:airline_theme="jellybeans"
+let g:airline_theme="zenburn"
+
+let g:ctrlp_map = '<c-c><c-p>'
+
+nmap <leader>w :w!<cr> "快速保存
+nnoremap <leader>w :w!<cr>
+
+""""""""""""""""""""""""" Emacas like binding """"""""""""""""""""""
+imap <c-a> <esc>^i
+nmap <c-a>  ^
+inoremap <c-e> <End>
+
+inoremap <c-f> <right>
+inoremap <c-b> <left>
+inoremap <c-n> <down>
+inoremap <c-p> <up>
+"inoremap <c-a> <Home>
+"inoremap <leader>w :w!<cr> "快速保存
+nmap <c-f> <right>
+nmap <c-b> <left>
+nmap <c-n> <down>
+nmap <c-p> <up>
+nmap <c-e> <End>
+""""""""""""""""""""""""" Emacas like binding """"""""""""""""""""""
+
+
