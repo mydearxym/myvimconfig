@@ -11,4 +11,4 @@ echo "copy done !"
 echo "add to github "
 git add .
 git commit -am "backup vim config "
-git push origin master
+git push -u origin master
