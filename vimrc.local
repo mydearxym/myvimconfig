@@ -7,9 +7,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme="badwolf"
 "let g:airline_theme="jellybeans"
 "let g:airline_theme="zenburn"
-set statusline=\ [%{HasPaste()}%F%m%r%h%w]\ [%{CurDir()}%h]\ [%l/%L]\ [%c]%{GitBranch()}%h\ [%Y]\ [%{&ff}]\ [%{(&fenc\ ==\ \"\"?&enc:&fenc).(&bomb?\",BOM\":\"\")}]
-
-"Git branch
+set statusline=\ [%{HasPaste()}%F%m%r%h%w]\ [%{CurDir()}%h]\ [%l/%L]\ [%c]%{GitBranch()}%h\ [%Y]\ [%{&ff}]\ [%{(&fenc\ ==\ \"\"?&enc:&fenc).(&bomb?\",BOM\":\"\")}TJZJF] "Git branch
 function! GitBranch()
     try
         let branch = system("git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* //'")
@@ -52,29 +50,22 @@ let g:user_emmet_leader_key=','
 nmap <leader>w :w!<cr> "快速保存
 nnoremap <leader>w :w!<cr>
 
+"==== highlight word
+let g:interestingWordsRandomiseColors = 1
+nnoremap <silent> <leader>l :call InterestingWords('n')<cr>
+" :call InterestingWords('n')<cr>a
+nnoremap <silent> <leader>L :call UncolorAllWords()<cr>
+
 "==== easymotion
-nmap <c-i> <Plug>(easymotion-t2)
-imap <c-i> <esc><Plug>(easymotion-t2)
+nmap <leader>. <Plug>(easymotion-t2)
+imap <leader>. <Esc>:<Plug>(easymotion-t2)
+" imap <c-i> <esc><Plug>(easymotion-t2)
 "nmap t <Plug>(easymotion-t2)
 
 "==== TagMatch
 let g:mta_use_matchparen_group=0
 let g:mta_set_default_matchtag_color=0
 highlight MatchTag ctermfg=black ctermbg=lightgrey guifg=black guibg=lightgrey
-
-set updatetime=800
-map <c-i> :call  HighlightWordUnderCursor()<cr>
-
-function! HighlightWordUnderCursor()
-    if getline(".")[col(".")-1] !~# '[[:punct:][:blank:]]'
-        exec 'match' 'Search' '/\V\<'.expand('<cword>').'\>/'
-    else
-        match none
-    endif
-endfunction
-
-autocmd! CursorHold,CursorHoldI * call HighlightWordUnderCursor()
-nmap <c-\>  HighlightWordUnderCursor()
 
 set cursorline
 " solarized theme
@@ -93,13 +84,17 @@ highlight nonText ctermbg=NONE
 " nnoremap <c-m> :CtrlPFunky<Cr>
 
 nnoremap <c-x><c-b> :CtrlPBuffer<CR>
-nnoremap <c-9> :NERDTreeFind<CR>
-imap <c-9> <Esc>:NERDTreeFind<CR>
+imap <c-x><c-b> <Esc>:CtrlPBuffer<CR>
+imap <leader>d <Esc>:NERDTreeToggle<cr>
+imap <leader>f <Esc>:NERDTreeFind<CR>
+noremap <leader>A :Align
+imap <leader>f <Esc>:NERDTreeFind<CR>
 nnoremap <c-c><c-o> :Ag<space>
 nnoremap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
 nnoremap <c-c><c-l> :TagbarToggle<CR>
 nnoremap <leader><space> :call whitespace#strip_trailing()<CR>
-nnoremap <leader>G :GitGutterToggle<CR>
+"nnoremap <leader>G :GitGutterToggle<CR>
+nnoremap <leader>g :GitGutterEnable<CR>
 
 " let delimitMate_expand_cr=1
 
@@ -128,6 +123,8 @@ autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 1
 """"""""""""""""""""""""" Emacs like binding """"""""""""""""""""""
 " nmap <c-/> <Esc>:undo<CR>
 " imap <c-/> <Esc>:undo<CR>
+nnoremap <C-l> zz
+imap <C-l> <Esc>zza
 nmap <C-j> <cr>
 imap <c-j> <cr>
 nmap fd <Esc>
