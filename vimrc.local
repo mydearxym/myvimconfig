@@ -1,5 +1,22 @@
 imap fd <Esc>
 " mydearxym
+
+
+"=== javascript 
+let g:tagbar_type_javascript = {'ctagsbin' : '/usr/local/bin/jsctags'}
+
+set updatetime=500
+
+function! HighlightWordUnderCursor()
+    if getline(".")[col(".")-1] !~# '[[:punct:][:blank:]]'
+        exec 'match' 'Search' '/\V\<'.expand('<cword>').'\>/'
+    else
+        match none
+    endif
+endfunction
+
+autocmd! CursorHold,CursorHoldI * call HighlightWordUnderCursor()
+
 "pluging airline
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
@@ -33,6 +50,10 @@ function! HasPaste()
     return ''
 endfunction
 
+
+" === gundo
+nnoremap T  :GundoToggle<cr>
+
 " ====  guide indent
 "随 vim 自启动
 let g:indent_guides_enable_on_vim_startup=1
@@ -58,6 +79,15 @@ let g:user_emmet_leader_key=','
 
 nmap <leader>w :w!<cr> "快速保存
 nnoremap <leader>w :w!<cr>
+
+"==== Occur buffer
+"<Space> : Set current window height to highest.
+"x : Display the occurence the current line.
+"q : Quit the quickfix window.
+nmap <c-c>o :StarOccur<cr>
+nmap <c-s> :StarOccur<cr>
+imap <c-c>o <Esc>:StarOccur<cr>
+imap <c-s> <Esc>:StarOccur<cr>
 
 "==== highlight word
 let g:interestingWordsRandomiseColors = 1
@@ -145,8 +175,12 @@ imap <c-k> <esc>ddi
 imap dd  <esc>ddi
 nmap <c-k> <esc>dd "not work
 
-nmap <c-[> <pageup>
-nmap <c-]> <pagedown>
+nmap <c-p> Hi<c-l><Esc>
+nmap <c-n> Li<c-l><Esc>
+imap <c-p> <up>
+imap <c-n> <down>
+
+
 "unmap <c-h>
 nnoremap <c-h> X "not work
 
@@ -158,13 +192,13 @@ inoremap <c-e> <End>
 
 inoremap <c-f> <right>
 inoremap <c-b> <left>
-inoremap <c-n> <down>
-inoremap <c-p> <up>
+" inoremap <c-n> <down>
+" inoremap <c-p> <up>
 
 cnoremap <c-f> <right>
 cnoremap <c-b> <left>
-cnoremap <c-n> <down>
-cnoremap <c-p> <up>
+" cnoremap <c-n> <down>
+" cnoremap <c-p> <up>
 cnoremap <c-a> <Home>
 cnoremap <c-e> <End>
 cnoremap <c-g>  <Esc>
@@ -173,8 +207,8 @@ cnoremap fd  <Esc>
 "nmap <c-2> v
 vmap <c-f> <right>
 vmap <c-b> <left>
-vmap <c-n> <down>
-vmap <c-p> <up>
+" vmap <c-n> <down>
+" vmap <c-p> <up>
 vmap <c-a> <Home>
 vmap <c-e> <End>
 vmap <c-g> <Esc><Esc>
@@ -183,15 +217,15 @@ vmap <c-g> <Esc><Esc>
 nmap <leader>L :highlight LineNr ctermfg=grey<cr>
 nmap <c-f> <right>
 nmap <c-b> <left>
-nmap <c-n> <down>
-nmap <c-p> <up>
+" nmap <c-n> <down>
+" nmap <c-p> <up>
 nmap <c-e> <End>
 
 nmap <c-x><c-c> <Esc>:wq!<cr>
 imap <c-x><c-c> <Esc>:wq!
 
-nmap <c-s> <Esc>/
-imap <c-s> <Esc>/
+"nmap <c-s> <Esc>/
+"imap <c-s> <Esc>/
 "f"""""""""""""""""""""""" Emacas like binding """"""""""""""""""""""
 
 """""""""""""""""""""""""" Basic settting """"""""
@@ -227,6 +261,10 @@ set nobackup "不备份
 set nowb
 set noswapfile
 set autoread
+"use . command in virual mode
+vnoremap . :norm.<CR>
+
+
 map <c-x><c-k> :Bclose<cr>
 imap <c-x><c-k> <Esc>:Bclose<cr>
 
