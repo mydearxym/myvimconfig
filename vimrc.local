@@ -1,8 +1,12 @@
 imap fd <Esc>
 " mydearxym
-
+imap <c-Enter> :hello
 set showtabline=0
 
+set foldmethod=indent
+
+"==== snipMate
+au BufRead,BufNewFile *.exs setl ft=elixir
 "====
 augroup VimCSS3Syntax
     autocmd!
@@ -11,7 +15,7 @@ augroup VimCSS3Syntax
 augroup END
 
 
-"=== javascript 
+"=== javascript
 let g:tagbar_type_javascript = {'ctagsbin' : '/usr/local/bin/jsctags'}
 
 set updatetime=500
@@ -33,7 +37,7 @@ let g:ctrlspace_use_ruby_bindings=1
 set grepprg=ag
 let g:grep_cmd_opts = '--line-numbers --noheading'
 
-"====== YRing 
+"====== YRing
 "要去插件源码把 C-N C-P随便改成其他的键值哈，要不然冲突
 nmap <c-c><c-v> :YRShow<cr>
 imap <c-c><c-v> <Esc>:YRShow<cr>
@@ -187,6 +191,14 @@ let g:syntastic_check_on_wq = 0
 
 " ======= beautify js
 map <c-c><c-a> :call JsBeautify()<cr>
+
+  " or
+autocmd FileType javascript noremap <buffer>  <c-c><c-a> :call JsBeautify()<cr>
+" for html
+autocmd FileType html noremap <buffer> <c-c><c-a> :call HtmlBeautify()<cr>
+" for css or scss
+autocmd FileType css noremap <buffer> <c-c><c-a> :call CSSBeautify()<cr>
+
 
 " ======= enhance js syntax
 "au FileType javascript call JavaScriptFold()
