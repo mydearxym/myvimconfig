@@ -1,12 +1,20 @@
 imap fd <Esc>
 " mydearxym
 
+set showtabline=0
+
+"====
+augroup VimCSS3Syntax
+    autocmd!
+
+    autocmd FileType css setlocal iskeyword+=-
+augroup END
+
 
 "=== javascript 
 let g:tagbar_type_javascript = {'ctagsbin' : '/usr/local/bin/jsctags'}
 
 set updatetime=500
-
 function! HighlightWordUnderCursor()
     if getline(".")[col(".")-1] !~# '[[:punct:][:blank:]]'
         exec 'match' 'Search' '/\V\<'.expand('<cword>').'\>/'
@@ -17,9 +25,23 @@ endfunction
 
 autocmd! CursorHold,CursorHoldI * call HighlightWordUnderCursor()
 
+" ===== ctrlspace
+let g:ctrlspace_default_mapping_key='<c-c><c-p>'
+let g:ctrlspace_use_ruby_bindings=1
+
+" ===== Greplace
+set grepprg=ag
+let g:grep_cmd_opts = '--line-numbers --noheading'
+
+"====== YRing 
+"要去插件源码把 C-N C-P随便改成其他的键值哈，要不然冲突
+nmap <c-c><c-v> :YRShow<cr>
+imap <c-c><c-v> <Esc>:YRShow<cr>
+
+
 "pluging airline
 set laststatus=2
-let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme="badwolf"
 "let g:airline_theme="jellybeans"
 "let g:airline_theme="zenburn"
@@ -70,8 +92,15 @@ let g:multi_cursor_prev_key='<c-x><s-o>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<C-g>'
 
-"====  ctrlp
-let g:ctrlp_map = '<c-c><c-p>'
+"==== ctrlp
+" 在插件源码中用乱码重新map
+
+"==== Ctrlp-funky
+let g:ctrlp_funky_syntax_highlight = 1
+let g:ctrlp_funky_matchtype = 'path'
+nnoremap <c-m> :CtrlPFunky<Cr>
+
+
 "====  emment
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
@@ -110,8 +139,7 @@ set cursorline
 " solarized theme
 syntax enable
 set number
-set relativenumber
-
+"set relativenumber
 "===== theme staff
 colorscheme lucario
 "colorscheme solarized
@@ -119,18 +147,28 @@ colorscheme lucario
 set t_Co=256
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
+highlight LineNr ctermfg=grey
 
 " nnoremap <c-m> :CtrlPFunky<Cr>
 
 nnoremap <c-x><c-b> :CtrlPBuffer<CR>
+nnoremap <c-c><c-b> :CtrlPBuffer<CR>
 imap <c-x><c-b> <Esc>:CtrlPBuffer<CR>
+imap <c-c><c-b> <Esc>:CtrlPBuffer<CR>
+
 imap <leader>d <Esc>:NERDTreeToggle<cr>
 imap <leader>f <Esc>:NERDTreeFind<CR>
 noremap <leader>A :Align
 imap <leader>f <Esc>:NERDTreeFind<CR>
 nnoremap <c-c><c-o> :Ag<space>
-nnoremap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
-nnoremap <c-c><c-l> :TagbarToggle<CR>
+nnoremap <leader>p :CtrlPClearCache<CR>:CtrlP<CR>
+
+nmap <c-x><c-f> :CtrlPClearCache<CR>:CtrlP<CR>
+nmap <c-c><c-f> :CtrlPClearCache<CR>:CtrlP<CR>
+imap <c-x><c-f> <Esc>:CtrlPClearCache<CR>:CtrlP<CR>
+imap <c-c><c-f> <Esc>:CtrlPClearCache<CR>:CtrlP<CR>
+
+nnoremap <leader>t :TagbarToggle<CR>
 nnoremap <leader><space> :call whitespace#strip_trailing()<CR>
 "nnoremap <leader>G :GitGutterToggle<CR>
 nnoremap <leader>g :GitGutterEnable<CR>
@@ -161,7 +199,11 @@ autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 1
 
 """"""""""""""""""""""""" Emacs like binding """"""""""""""""""""""
 " nmap <c-/> <Esc>:undo<CR>
+"
 " imap <c-/> <Esc>:undo<CR>
+nmap <c-x><c-c> :wqa<cr>
+imap <c-x><c-c> <Esc>:wqa<cr><cr>
+
 nnoremap <C-l> zz
 imap <C-l> <Esc>zza
 nmap <C-j> <cr>
@@ -220,9 +262,6 @@ nmap <c-b> <left>
 " nmap <c-n> <down>
 " nmap <c-p> <up>
 nmap <c-e> <End>
-
-nmap <c-x><c-c> <Esc>:wq!<cr>
-imap <c-x><c-c> <Esc>:wq!
 
 "nmap <c-s> <Esc>/
 "imap <c-s> <Esc>/
