@@ -1,9 +1,23 @@
 imap fd <Esc>
 " mydearxym
-imap <c-Enter> :hello
 set showtabline=0
 
-set foldmethod=indent
+"buffer switch
+nmap <c-[>  :bp<cr>
+nmap <c-]>  :bn<cr>
+
+" expand-region
+map <space> <Plug>(expand_region_expand)
+
+"manual
+set foldmethod=manual
+"==== indentline
+let g:indentLine_char = '︙'
+let g:indentLine_enabled = 0
+nmap <leader>i :IndentLinesToggle<cr>
+
+"==== tmuxify
+let g:tmuxify_map_prefix = '<leader>t'
 
 "==== snipMate
 au BufRead,BufNewFile *.exs setl ft=elixir
@@ -80,16 +94,6 @@ endfunction
 " === gundo
 nnoremap T  :GundoToggle<cr>
 
-" ====  guide indent
-"随 vim 自启动
-let g:indent_guides_enable_on_vim_startup=1
-" 从第二层开始可视化显示缩进
-let g:indent_guides_start_level=2
-" 色块宽度
-let g:indent_guides_guide_size=1
-" 快捷键 i 开/关缩进可视化
-nmap <silent> <Leader>i <Plug>IndentGuidesToggle
-
 " ==== multi-cursors
 let g:multi_cursor_next_key='<c-\>'
 let g:multi_cursor_prev_key='<c-x><s-o>'
@@ -102,7 +106,8 @@ let g:multi_cursor_quit_key='<C-g>'
 "==== Ctrlp-funky
 let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_funky_matchtype = 'path'
-nnoremap <c-m> :CtrlPFunky<Cr>
+nnoremap <c-c><c-m> :CtrlPFunky<Cr>
+imap <c-c><c-m> <Esc>:CtrlPFunky<Cr>
 
 
 "====  emment
@@ -118,9 +123,9 @@ nnoremap <leader>w :w!<cr>
 "x : Display the occurence the current line.
 "q : Quit the quickfix window.
 nmap <c-c>o :StarOccur<cr>
-nmap <c-s> :StarOccur<cr>
+"nmap <c-s> :StarOccur<cr>
 imap <c-c>o <Esc>:StarOccur<cr>
-imap <c-s> <Esc>:StarOccur<cr>
+"imap <c-c><c-s> <Esc>:StarOccur<cr>
 
 "==== highlight word
 let g:interestingWordsRandomiseColors = 1
@@ -223,10 +228,9 @@ imap <c-j> <cr>
 nmap fd <Esc>
 imap <c-a> <esc>^i
 nmap <c-a>  ^
-imap <c-d> <esc>s
+imap <c-d> <esc>x
 nmap <c-d>  x
 imap <c-k> <esc>ddi
-imap dd  <esc>ddi
 nmap <c-k> <esc>dd "not work
 
 nmap <c-p> Hi<c-l><Esc>
@@ -261,8 +265,8 @@ cnoremap fd  <Esc>
 "nmap <c-2> v
 vmap <c-f> <right>
 vmap <c-b> <left>
-" vmap <c-n> <down>
-" vmap <c-p> <up>
+vmap <c-n> <pageDown>
+vmap <c-p> <pageUp>
 vmap <c-a> <Home>
 vmap <c-e> <End>
 vmap <c-g> <Esc><Esc>
@@ -339,43 +343,3 @@ function! <SID>BufcloseCloseIt()
     endif
 endfunction
 
-
-
-function! AutoPair(open, close)
-        let line = getline('.')
-        if col('.') > strlen(line) || line[col('.') - 1] == ' '
-                return a:open.a:close."\<ESC>i"
-        else
-                return a:open
-        endif
-endf
-
-function! ClosePair(char)
-        if getline('.')[col('.') - 1] == a:char
-                return "\<Right>"
-        else
-                return a:char
-        endif
-endf
-
-function! SamePair(char)
-        let line = getline('.')
-        if col('.') > strlen(line) || line[col('.') - 1] == ' '
-                return a:char.a:char."\<ESC>i"
-        elseif line[col('.') - 1] == a:char
-                return "\<Right>"
-        else
-                return a:char
-        endif
-endf
-
-
-inoremap ( <c-r>=AutoPair('(', ')')<CR>
-inoremap ) <c-r>=ClosePair(')')<CR>
-inoremap { <c-r>=AutoPair('{', '}')<CR>
-inoremap } <c-r>=ClosePair('}')<CR>
-inoremap [ <c-r>=AutoPair('[', ']')<CR>
-inoremap ] <c-r>=ClosePair(']')<CR>
-inoremap " <c-r>=SamePair('"')<CR>
-inoremap ' <c-r>=SamePair("'")<CR>
-inoremap ` <c-r>=SamePair('`')<CR>
