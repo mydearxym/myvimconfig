@@ -1,6 +1,28 @@
+
+
+set mouse-=a
+
+"""""""""""""""""""""""""""""""""""""""""""""""
+""  mydarxym@qq.com
+""
+""  MY  VIM CONFIG
+""
+""
+""""""""""""""""""""""""""""""""""""""""""""""
 imap fd <Esc>
+
+
+" javascript syntax 
+
+
 " mydearxym
 set showtabline=0
+"粘贴时不置换“剪贴板”
+xnoremap p pgvy
+
+imap <c-/> :fuck
+imap <c-u> <Esc>:undo<cr>a
+map <c-u> :undo<cr>
 
 "buffer switch
 nmap <c-[>  :bp<cr>
@@ -32,16 +54,17 @@ augroup END
 "=== javascript
 let g:tagbar_type_javascript = {'ctagsbin' : '/usr/local/bin/jsctags'}
 
-set updatetime=500
-function! HighlightWordUnderCursor()
-    if getline(".")[col(".")-1] !~# '[[:punct:][:blank:]]'
-        exec 'match' 'Search' '/\V\<'.expand('<cword>').'\>/'
-    else
-        match none
-    endif
-endfunction
+let g:matchmaker_enable_startup = 1
+" set updatetime=500
+" function! HighlightWordUnderCursor()
+"     if getline(".")[col(".")-1] !~# '[[:punct:][:blank:]]'
+"         exec 'match' 'Search' '/\V\<'.expand('<cword>').'\>/'
+"     else
+"         match none
+"     endif
+" endfunction
 
-autocmd! CursorHold,CursorHoldI * call HighlightWordUnderCursor()
+" autocmd! CursorHold,CursorHoldI * call HighlightWordUnderCursor()
 
 " ===== ctrlspace
 let g:ctrlspace_default_mapping_key='<c-c><c-p>'
@@ -165,22 +188,23 @@ nnoremap <c-c><c-b> :CtrlPBuffer<CR>
 imap <c-x><c-b> <Esc>:CtrlPBuffer<CR>
 imap <c-c><c-b> <Esc>:CtrlPBuffer<CR>
 
-imap <leader>d <Esc>:NERDTreeToggle<cr>
-imap <leader>f <Esc>:NERDTreeFind<CR>
+nmap <leader>d <Esc>:NERDTreeToggle<cr>
+nmap <leader>f <Esc>:NERDTreeFind<CR>
 noremap <leader>A :Align
 imap <leader>f <Esc>:NERDTreeFind<CR>
 nnoremap <c-c><c-o> :Ag<space>
 nnoremap <leader>p :CtrlPClearCache<CR>:CtrlP<CR>
 
-nmap <c-x><c-f> :CtrlPClearCache<CR>:CtrlP<CR>
-nmap <c-c><c-f> :CtrlPClearCache<CR>:CtrlP<CR>
-imap <c-x><c-f> <Esc>:CtrlPClearCache<CR>:CtrlP<CR>
-imap <c-c><c-f> <Esc>:CtrlPClearCache<CR>:CtrlP<CR>
+" nmap <c-x><c-f> :CtrlPClearCache<CR>:CtrlP<CR>
+" nmap <c-c><c-f> :CtrlPClearCache<CR>:CtrlP<CR>
+" imap <c-x><c-f> <Esc>:CtrlPClearCache<CR>:CtrlP<CR>
+" imap <c-c><c-f> <Esc>:CtrlPClearCache<CR>:CtrlP<CR>
 
 nnoremap <leader>t :TagbarToggle<CR>
 nnoremap <leader><space> :call whitespace#strip_trailing()<CR>
 "nnoremap <leader>G :GitGutterToggle<CR>
 nnoremap <leader>g :GitGutterEnable<CR>
+let g:gitgutter_max_signs = 1000
 
 " let delimitMate_expand_cr=1
 
@@ -218,6 +242,16 @@ autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 1
 " nmap <c-/> <Esc>:undo<CR>
 "
 " imap <c-/> <Esc>:undo<CR>
+"
+imap <c-x>2 <Esc>:vsplit<cr><c-L>a
+map <c-x>2 :vsplit<cr><c-L>
+
+imap <c-x>3 <Esc>:split<cr><c-J>a
+map <c-x>3 :split<cr><c-J>
+
+nmap <c-x><c-f> :edit<space>
+imap <c-x><c-f> <esc>:edit<space>
+
 nmap <c-x><c-c> :wqa<cr>
 imap <c-x><c-c> <Esc>:wqa<cr><cr>
 
