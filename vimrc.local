@@ -9,11 +9,29 @@ set mouse-=a
 ""
 ""
 """"""""""""""""""""""""""""""""""""""""""""""
+
 imap fd <Esc>
+if v:version >= 700
+  au BufLeave * let b:winview = winsaveview()
+  au BufEnter * if(exists('b:winview')) | call winrestview(b:winview) | endif
+endif
 
 
-" javascript syntax 
+if has("gui_running")
+  if has("gui_gtk2")
+    set guifont=Inconsolata\ 12
+  elseif has("gui_macvim")
+    set guifont=Menlo\ Regular:h14
+  elseif has("gui_win32")
+    set guifont=Consolas:h11:cANSI
+  endif
+endif
 
+
+" javascript syntax
+"hi Identifier guifg=red
+"hi Function guifg=red
+"let g:used_javascript_libs = 'underscore,angularjs,react'
 
 " mydearxym
 set showtabline=0
@@ -25,11 +43,11 @@ imap <c-u> <Esc>:undo<cr>a
 map <c-u> :undo<cr>
 
 "buffer switch
-nmap <c-cr> :b#
 
 " nmap <c-[>  :bp<cr>
-nmap <c-]>  :b#<cr>
-
+nmap <c-]>  :b#<cr> " for terminal
+nmap <S-Enter> :b#<cr>
+imap <S-Enter> <Esc>:b#<cr>a
 " expand-region
 map <space> <Plug>(expand_region_expand)
 
@@ -37,7 +55,6 @@ map <space> <Plug>(expand_region_expand)
 set foldmethod=manual
 "==== indentline
 let g:indentLine_char = '︙'
-let g:indentLine_enabled = 0
 nmap <leader>i :IndentLinesToggle<cr>
 
 "==== tmuxify
@@ -154,9 +171,15 @@ imap <c-c>o <Esc>:StarOccur<cr>
 
 "==== highlight word
 let g:interestingWordsRandomiseColors = 1
-nnoremap <silent> <leader>l :call InterestingWords('n')<cr>
+"nnoremap <silent> <leader>l :call InterestingWords('n')<cr>
+"nnoremap <silent> <c-Enter> :call InterestingWords('n')<cr>
 " :call InterestingWords('n')<cr>a
-nnoremap <silent> <leader>L :call UncolorAllWords()<cr>
+"nnoremap <silent> <leader>L :call UncolorAllWords()<cr>
+"nnoremap <silent> <c-Enter> :call UncolorAllWords()<cr>
+nmap <leader>l :nohl<cr>
+imap <leader>l <Esc>:nohl<cr>a
+nmap <C-c><c-l> <leader>m
+imap <C-c><c-l> <Esc><leader>ma
 
 "==== easymotion
 nmap <leader>. <Plug>(easymotion-t2)
@@ -175,13 +198,14 @@ syntax enable
 set number
 "set relativenumber
 "===== theme staff
-colorscheme lucario
-"colorscheme solarized
+"colorscheme lucario
+set background=dark
+colorscheme solarized
 "colorscheme materialtheme
 set t_Co=256
-highlight Normal ctermbg=NONE
-highlight nonText ctermbg=NONE
-highlight LineNr ctermfg=grey
+"highlight Normal ctermbg=NONE
+"highlight nonText ctermbg=NONE
+"highlight LineNr ctermfg=grey
 
 " nnoremap <c-m> :CtrlPFunky<Cr>
 
@@ -210,11 +234,11 @@ let g:gitgutter_max_signs = 1000
 
 " let delimitMate_expand_cr=1
 
+"======= syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-"======= syntastic
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -264,7 +288,7 @@ imap <c-j> <cr>
 nmap fd <Esc>
 imap <c-a> <esc>^i
 nmap <c-a>  ^
-imap <c-d> <esc>x
+imap <c-d> <esc>xa
 nmap <c-d>  x
 imap <c-k> <esc>ddi
 nmap <c-k> <esc>dd "not work
@@ -378,4 +402,3 @@ function! <SID>BufcloseCloseIt()
         execute("bdelete! " . l:currentBufNum)
     endif
 endfunction
-
