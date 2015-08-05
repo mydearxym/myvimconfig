@@ -10,6 +10,11 @@ set mouse-=a
 ""
 """"""""""""""""""""""""""""""""""""""""""""""
 
+"hightlight
+syn keyword Myfunctions self func_name2
+highlight Myfunctions guifg=red
+
+
 "snippet tirgger
 
 " tagmach
@@ -153,7 +158,7 @@ nnoremap T  :GundoToggle<cr>
 
 " ==== multi-cursors
 let g:multi_cursor_next_key='<c-\>'
-let g:multi_cursor_next_key='<d-d>'
+let g:multi_cursor_next_key='<d-j>'
 let g:multi_cursor_prev_key='<c-x><s-o>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<C-g>'
