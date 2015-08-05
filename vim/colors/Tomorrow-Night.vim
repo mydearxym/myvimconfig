@@ -15,6 +15,7 @@ let s:red = "cc6666"
 let s:orange = "de935f"
 let s:yellow = "f0c674"
 let s:green = "b5bd68"
+let s:darkgreen = "4DB9AF"
 let s:aqua = "8abeb7"
 "function color
 let s:blue = "81a2be"
@@ -279,12 +280,13 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("Title", s:comment, "", "")
 	call <SID>X("Identifier", s:red, "", "none")
 	call <SID>X("Statement", s:foreground, "", "")
-	call <SID>X("Conditional", s:foreground, "", "")
+	"call <SID>X("Conditional", s:foreground, "", "")
+	call <SID>X("Conditional", s:darkgreen, "", "")
 	call <SID>X("Repeat", s:foreground, "", "")
 	call <SID>X("Structure", s:purple, "", "")
 	call <SID>X("Function", s:blue, "", "")
-	call <SID>X("Constant", s:orange, "", "")
-	call <SID>X("String", s:green, "", "")
+	call <SID>X("Constant", s:green, "", "")
+	call <SID>X("String", s:orange, "", "")
 	call <SID>X("Special", s:foreground, "", "")
 	call <SID>X("PreProc", s:purple, "", "")
 	call <SID>X("Operator", s:aqua, "", "none")
@@ -341,7 +343,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("javaScriptFunction", s:purple, "", "")
 	call <SID>X("javaScriptConditional", s:purple, "", "")
 	call <SID>X("javaScriptRepeat", s:purple, "", "")
-	call <SID>X("javaScriptNumber", s:orange, "", "")
+	call <SID>X("javaScriptNumber", s:green, "", "")
 	call <SID>X("javaScriptMember", s:orange, "", "")
     call <SID>X("javascriptNull", s:orange, "", "")
     call <SID>X("javascriptGlobal", s:blue, "", "")

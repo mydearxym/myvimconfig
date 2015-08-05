@@ -10,6 +10,8 @@ set mouse-=a
 ""
 """"""""""""""""""""""""""""""""""""""""""""""
 
+"snippet tirgger
+
 " tagmach
 let g:mta_use_matchparen_group = 1
 let g:mta_filetypes = {
@@ -19,7 +21,8 @@ let g:mta_filetypes = {
     \ 'jinja' : 1,
     \}
 
-highlight MatchTag ctermfg=black ctermbg=lightgreen guifg=black guibg=lightgreen
+highlight MatchTag ctermfg=black ctermbg=lightgreen guifg=black guibg=grey
+nnoremap <leader>5 :MtaJumpToOtherTag<cr>
 
 
 imap fd <Esc>
@@ -67,7 +70,7 @@ map <space> <Plug>(expand_region_expand)
 set foldmethod=manual
 "==== indentline
 "let g:indentLine_char = '︙'
-nmap <leader>i :IndentLinesToggle<cr>
+"nmap <leader>i :IndentLinesToggle<cr>
 
 "==== tmuxify
 let g:tmuxify_map_prefix = '<leader>t'
@@ -150,6 +153,7 @@ nnoremap T  :GundoToggle<cr>
 
 " ==== multi-cursors
 let g:multi_cursor_next_key='<c-\>'
+let g:multi_cursor_next_key='<d-d>'
 let g:multi_cursor_prev_key='<c-x><s-o>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<C-g>'
@@ -177,6 +181,7 @@ nnoremap <leader>w :w!<cr>
 "x : Display the occurence the current line.
 "q : Quit the quickfix window.
 nmap <c-c>o :StarOccur<cr>
+vmap <c-c>o :StarOccur<cr>
 "nmap <c-s> :StarOccur<cr>
 imap <c-c>o <Esc>:StarOccur<cr>
 "imap <c-c><c-s> <Esc>:StarOccur<cr>
@@ -194,8 +199,8 @@ nmap <C-c><c-l> <leader>m
 imap <C-c><c-l> <Esc><leader>ma
 
 "==== easymotion
-nmap <leader>. <Plug>(easymotion-t2)
-imap <leader>. <Esc>:<Plug>(easymotion-t2)
+nmap <leader>i <Plug>(easymotion-t2)
+imap <leader>i <Esc><leader>i
 " imap <c-i> <esc><Plug>(easymotion-t2)
 "nmap t <Plug>(easymotion-t2)
 
