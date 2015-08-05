@@ -54,7 +54,7 @@ map <space> <Plug>(expand_region_expand)
 "manual
 set foldmethod=manual
 "==== indentline
-let g:indentLine_char = '︙'
+"let g:indentLine_char = '︙'
 nmap <leader>i :IndentLinesToggle<cr>
 
 "==== tmuxify
@@ -200,7 +200,8 @@ set number
 "===== theme staff
 "colorscheme lucario
 set background=dark
-colorscheme solarized
+"colorscheme solarized
+colorscheme Tomorrow-Night
 "colorscheme materialtheme
 set t_Co=256
 "highlight Normal ctermbg=NONE
