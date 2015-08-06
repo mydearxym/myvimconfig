@@ -20,7 +20,8 @@ let s:aqua = "8abeb7"
 "function color
 let s:blue = "81a2be"
 let s:purple = "b294bb"
-let s:window = "4d5057"
+"let s:window = "4d5057"
+let s:window = "81a2be"
 
 " Console 256 Colours
 if !has("gui_running")
@@ -247,7 +248,8 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("Normal", s:foreground, s:background, "")
 	call <SID>X("LineNr", s:selection, "", "")
 	call <SID>X("NonText", s:selection, "", "")
-	call <SID>X("SpecialKey", s:selection, "", "")
+	"call <SID>X("SpecialKey", s:selection, "", "")
+	call <SID>X("SpecialKey", s:blue, "", "")
 	call <SID>X("Search", s:background, s:yellow, "")
 	call <SID>X("TabLine", s:window, s:foreground, "reverse")
 	call <SID>X("TabLineFill", s:window, s:foreground, "reverse")
@@ -276,7 +278,8 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
 	" Standard Highlighting
 	call <SID>X("Comment", s:comment, "", "")
-	call <SID>X("Todo", s:comment, s:background, "")
+	"call <SID>X("Todo", s:comment, s:background, "")
+	call <SID>X("Todo", s:red, s:background, "")
 	call <SID>X("Title", s:comment, "", "")
 	call <SID>X("Identifier", s:red, "", "none")
 	call <SID>X("Statement", s:foreground, "", "")
@@ -351,9 +354,9 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
 	" HTML Highlighting
 	call <SID>X("htmlTag", s:red, "", "")
-	call <SID>X("htmlTagName", s:red, "", "")
-	call <SID>X("htmlArg", s:red, "", "")
-	call <SID>X("htmlScriptTag", s:red, "", "")
+	call <SID>X("htmlTagName", s:blue, "", "")
+	call <SID>X("htmlArg", s:blue, "", "")
+	call <SID>X("htmlScriptTag", s:blue, "", "")
 
 	" Diff Highlighting
 	call <SID>X("diffAdded", s:green, "", "")

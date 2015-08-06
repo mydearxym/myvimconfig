@@ -202,7 +202,9 @@ let g:interestingWordsRandomiseColors = 1
 nmap <leader>l :nohl<cr>
 imap <leader>l <Esc>:nohl<cr>a
 nmap <C-c><c-l> <leader>m
+nmap <C-t> <leader>m
 imap <C-c><c-l> <Esc><leader>ma
+imap <C-t> <Esc><leader>ma
 
 "==== easymotion
 nmap <leader>i <Plug>(easymotion-t2)
@@ -313,8 +315,10 @@ nmap <c-d>  x
 imap <c-k> <esc>ddi
 nmap <c-k> <esc>dd "not work
 
-nmap <c-p> Hi<c-l><Esc>
-nmap <c-n> Li<c-l><Esc>
+"nmap <c-p> Hi<c-l><Esc>
+"nmap <c-n> Li<c-l><Esc>
+nmap <C-p> <pageUp>
+nmap <C-n> <pageDown>
 imap <c-p> <up>
 imap <c-n> <down>
 
