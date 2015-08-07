@@ -208,9 +208,11 @@ imap <c-c>o <Esc>:StarOccur<cr>
 "imap <c-c><c-s> <Esc>:StarOccur<cr>
 
 "==== easymotion
+"https://github.com/easymotion/vim-easymotion/issues/139
 let g:EasyMotion_leader_key = '&^djfi4oejdoife' " easymotion use <leader><leader> as prefix key
 let g:EasyMotion_add_search_history = 0 "disable the auto highlight after jump
 nmap <leader>g <Plug>(easymotion-sn)
+nmap gg <Plug>(easymotion-sn)
 
 "==== highlight word
 let g:interestingWordsRandomiseColors = 1
