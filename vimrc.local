@@ -12,9 +12,12 @@ noremap <leader>W :w !sudo tee %<CR>
 """"""""""""""""""""""""""""""""""""""""""""""
 nmap <leader>n :Note<space>
 
-nmap <d-j> :bprevious
-nmap <d-k> :bnext
-
+"""""""""""""""""""""" Buffer navigatior """""""""""""""""""""""""
+nnoremap J <NOP>
+nnoremap K <NOP>
+nmap J :bprevious<cr>
+nmap K :bnext<cr>
+"""""""""""""""""""""" Buffer navigatior """""""""""""""""""""""""
 
 set diffopt=filler
 set noerrorbells " Disable error bells"
@@ -31,7 +34,7 @@ let g:asterisk#keeppos = 1
 "map *   <Plug>(asterisk-*)
 "map #   <Plug>(asterisk-#)
 
-" emacs-like search 
+" emacs-like search
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
