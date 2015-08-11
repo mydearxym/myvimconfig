@@ -207,11 +207,13 @@ let g:multi_cursor_quit_key='<C-g>'
 " 在插件源码中用乱码重新map
 let g:ctrlp_clear_cache_on_exit = 0 " Do not clear filenames cache, to improve CtrlP startup
 let g:ctrlp_lazy_update = 100 " Set delay to prevent extra search
-let g:ctrlp_match_window_bottom = 0 " Show at top of window
+"let g:ctrlp_match_window_bottom = 0 " Show at top of window
 " let g:ctrlp_max_files = 0 " Set no file limit, we are building a big project
 " let g:ctrlp_switch_buffer = 'Et' " Jump to tab AND buffer if already open
 " let g:ctrlp_open_new_file = 'r' " Open newly created files in the current window
 " let g:ctrlp_open_multiple_files = 'ij' " Open multiple files in hidden buffers, and jump to the first one
+nnoremap <c-x><c-f> :CtrlPClearCache<CR>:CtrlP<CR>
+nnoremap <c-c><c-f> :CtrlPClearCache<CR>:CtrlP<CR>
 
 "==== Ctrlp-funky
 let g:ctrlp_funky_syntax_highlight = 1
@@ -287,7 +289,6 @@ nmap <leader>f <Esc>:NERDTreeFind<CR>
 noremap <leader>A :Align
 imap <leader>f <Esc>:NERDTreeFind<CR>
 nnoremap <c-c><c-o> :Ag<space>
-nnoremap <leader>p :CtrlPClearCache<CR>:CtrlP<CR>
 
 " nmap <c-x><c-f> :CtrlPClearCache<CR>:CtrlP<CR>
 " nmap <c-c><c-f> :CtrlPClearCache<CR>:CtrlP<CR>
@@ -343,8 +344,8 @@ map <c-x>2 :vsplit<cr><c-L>
 imap <c-x>3 <Esc>:split<cr><c-J>a
 map <c-x>3 :split<cr><c-J>
 
-nmap <c-x><c-f> :edit<space>
-imap <c-x><c-f> <esc>:edit<space>
+nmap <leader>e :edit<space>
+imap <leader>e <esc>:edit<space>
 
 nmap <c-x><c-c> :wqa<cr>
 imap <c-x><c-c> <Esc>:wqa<cr><cr>
