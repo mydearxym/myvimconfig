@@ -12,6 +12,10 @@ noremap <leader>W :w !sudo tee %<CR>
 """"""""""""""""""""""""""""""""""""""""""""""
 nmap <leader>n :Note<space>
 
+nmap <d-j> :bprevious
+nmap <d-k> :bnext
+
+
 set diffopt=filler
 set noerrorbells " Disable error bells"
 set mouse=a " Enable mouse in all in all modes"
@@ -193,9 +197,9 @@ nnoremap T  :GundoToggle<cr>
 
 " ==== multi-cursors
 let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_next_key='<c-\>'
-let g:multi_cursor_next_key='<c-;>'
-let g:multi_cursor_prev_key='<c-x><s-o>'
+"let g:multi_cursor_next_key='<c-\>'
+let g:multi_cursor_next_key='<c-J>'
+"let g:multi_cursor_prev_key='<c-x><s-o>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<C-g>'
 
