@@ -296,6 +296,9 @@ nnoremap <c-c><c-o> :Ag<space>
 nnoremap <leader>t :TagbarToggle<CR>
 nnoremap <leader><space> :call whitespace#strip_trailing()<CR>
 "nnoremap <leader>G :GitGutterToggle<CR>
+let g:gitgutter_sign_column_always = 1
+"let g:gitgutter_highlight_lines = 1
+let g:gitgutter_enabled = 1
 nnoremap <c-c>g :GitGutterEnable<CR>
 let g:gitgutter_max_signs = 1000
 
