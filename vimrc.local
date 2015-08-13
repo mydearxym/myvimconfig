@@ -29,7 +29,7 @@ nnoremap <leader>R :%s/\<<C-r><C-w>\>//<Left>
 vnoremap <leader>R "hy:%s/\V<C-r>h//<left>"
 
 " indent
-let g:indent_guides_start_level=2
+let g:indent_guides_start_level=1
 let g:indent_guides_guide_size=1
 nmap <leader>i :IndentGuidesToggle<cr>
 
@@ -203,7 +203,7 @@ nnoremap T  :GundoToggle<cr>
 " ==== multi-cursors
 let g:multi_cursor_use_default_mapping=0
 "let g:multi_cursor_next_key='<c-\>'
-let g:multi_cursor_next_key='<c-l>'
+let g:multi_cursor_next_key='<c-y>'
 "let g:multi_cursor_prev_key='<c-x><s-o>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<C-g>'
@@ -285,7 +285,7 @@ imap <c-c><c-b> <Esc>:CtrlPBuffer<CR>
 nmap <leader>d <Esc>:NERDTreeToggle<cr>
 nmap <leader>f <Esc>:NERDTreeFind<CR>
 noremap <leader>A :Align
-imap <leader>f <Esc>:NERDTreeFind<CR>
+" imap <leader>f <Esc>:NERDTreeFind<CR>
 nnoremap <c-c><c-o> :Ag<space>
 
 " nmap <c-x><c-f> :CtrlPClearCache<CR>:CtrlP<CR>
@@ -351,8 +351,8 @@ imap <leader>e <esc>:edit<space>
 nmap <c-x><c-c> :wqa<cr>
 imap <c-x><c-c> <Esc>:wqa<cr><cr>
 
-"nnoremap <C-l> zz
-"imap <C-l> <Esc>zza
+nnoremap <C-l> zz
+imap <C-l> <Esc>zza
 nmap <C-j> <cr>
 imap <c-j> <cr>
 nmap fd <Esc>
