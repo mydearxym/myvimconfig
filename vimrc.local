@@ -11,6 +11,11 @@ noremap <leader>W :w !sudo tee %<CR>
 ""
 """"""""""""""""""""""""""""""""""""""""""""""
 
+" clever-f
+let g:clever_f_across_no_line=1
+let g:clever_f_not_overwrites_standard_mappings = 1
+map ; <Plug>(clever-f-t)
+map F <Plug>(clever-f-F)
 """"""""""""""""""""""""""""""""""""""""""""""
 "" snippets
 " make YCM compatible with UltiSnips (using supertab)
@@ -23,7 +28,7 @@ noremap <leader>W :w !sudo tee %<CR>
 " let g:UltiSnipsJumpForwardTrigger = "<tab>"
 " let g:UltiSnipsJumpBackwardTrigger = "<s-tab>""
 
-let g:UltiSnipsExpandTrigger="<c-j>""
+let g:UltiSnipsExpandTrigger="<c-]>""
 
 """"""""""""""""""""""""""""""""""""""""""""""
 
