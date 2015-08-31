@@ -10,6 +10,10 @@ noremap <leader>W :w !sudo tee %<CR>
 ""
 ""
 """"""""""""""""""""""""""""""""""""""""""""""
+" Syntastic
+let g:SyntasticToggleMode=1
+nmap <leader>c :SyntasticCheck<cr>
+nmap <leader>C :SyntasticToggleMode<cr>
 
 " clever-f
 let g:clever_f_across_no_line=1
