@@ -57,3 +57,4 @@ Plugin 'rhysd/clever-f.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'mrinterweb/vim-visual-surround'
 
+Plugin 'cakebaker/scss-syntax.vim'
