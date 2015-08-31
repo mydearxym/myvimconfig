@@ -10,10 +10,6 @@ noremap <leader>W :w !sudo tee %<CR>
 ""
 ""
 """"""""""""""""""""""""""""""""""""""""""""""
-" Syntastic
-let g:SyntasticToggleMode=1
-nmap <leader>c :SyntasticCheck<cr>
-nmap <leader>C :SyntasticToggleMode<cr>
 
 " clever-f
 let g:clever_f_across_no_line=1
@@ -337,8 +333,12 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:syntastic_check_on_open = 0
+let g:SyntasticToggleMode=1
+nmap <leader>c :SyntasticCheck<cr>
+nmap <leader>C :SyntasticToggleMode<cr>
 
 " ======= beautify js
 map <c-c><c-a> :call JsBeautify()<cr>
