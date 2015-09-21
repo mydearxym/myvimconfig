@@ -59,3 +59,10 @@ Plugin 'mrinterweb/vim-visual-surround'
 
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'ajh17/Spacegray.vim'
+
+Bundle "mxw/vim-jsx"
+Bundle 'zhaocai/GoldenView.Vim'
+
+
+
+

@@ -11,6 +11,12 @@ noremap <leader>W :w !sudo tee %<CR>
 ""
 """"""""""""""""""""""""""""""""""""""""""""""
 
+
+" golden window
+" 1. split to tiled windows
+let g:goldenview__enable_default_mapping = 0
+nmap <silent> <C-return>  <Plug>GoldenViewSplit
+
 " clever-f
 let g:clever_f_across_no_line=1
 let g:clever_f_not_overwrites_standard_mappings = 1
