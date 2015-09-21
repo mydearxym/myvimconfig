@@ -291,7 +291,9 @@ set number
 set background=dark
 "colorscheme solarized
 colorscheme Tomorrow-Night
-"colorscheme materialtheme
+" set background=dark
+" colorscheme spacegray
+
 set t_Co=256
 "highlight Normal ctermbg=NONE
 "highlight nonText ctermbg=NONE

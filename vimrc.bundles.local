@@ -58,3 +58,4 @@ Plugin 'tpope/vim-surround'
 Plugin 'mrinterweb/vim-visual-surround'
 
 Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'ajh17/Spacegray.vim'
