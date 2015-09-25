@@ -1,5 +1,6 @@
 
 
+set linespace=3
 set mouse-=a
 noremap <leader>W :w !sudo tee %<CR>
 
@@ -295,8 +296,8 @@ set number
 "===== theme staff
 "colorscheme lucario
 set background=dark
-"colorscheme solarized
-colorscheme Tomorrow-Night
+colorscheme solarized
+" colorscheme Tomorrow-Night
 " set background=dark
 " colorscheme spacegray
 
@@ -358,6 +359,9 @@ autocmd FileType html noremap <buffer> <c-c><c-a> :call HtmlBeautify()<cr>
 " for css or scss
 autocmd FileType css noremap <buffer> <c-c><c-a> :call CSSBeautify()<cr>
 
+
+" for jsx
+let g:jsx_ext_required = 0
 
 " ======= enhance js syntax
 "au FileType javascript call JavaScriptFold()

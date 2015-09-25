@@ -242,8 +242,10 @@ let colors_name = "solarized"
 " neutral gray monotone palette component)
 if (has("gui_running") && g:solarized_degrade == 0)
     let s:vmode       = "gui"
-    let s:base03      = "#002b36"
-    let s:base02      = "#073642"
+    " let s:base03      = "#002b36"
+    let s:base03      = "#324259"  "this is background-color
+    " let s:base02      = "#073642"
+    let s:base02      = "#324259"
     let s:base01      = "#586e75"
     let s:base00      = "#657b83"
     let s:base0       = "#839496"
@@ -252,7 +254,8 @@ if (has("gui_running") && g:solarized_degrade == 0)
     let s:base3       = "#fdf6e3"
     let s:yellow      = "#b58900"
     let s:orange      = "#cb4b16"
-    let s:red         = "#dc322f"
+    " let s:red         = "#dc322f"
+    let s:red         = "#859900"
     let s:magenta     = "#d33682"
     let s:violet      = "#6c71c4"
     let s:blue        = "#268bd2"
