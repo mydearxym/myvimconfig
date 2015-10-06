@@ -63,6 +63,8 @@ Plugin 'ajh17/Spacegray.vim'
 Bundle "mxw/vim-jsx"
 Bundle 'zhaocai/GoldenView.Vim'
 
+Bundle "daylerees/colour-schemes", { "rtp": "vim/" }
+Bundle "altercation/vim-colors-solarized"
 
 
 

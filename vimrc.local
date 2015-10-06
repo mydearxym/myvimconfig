@@ -296,10 +296,22 @@ set number
 "===== theme staff
 "colorscheme lucario
 set background=dark
+let g:solarized_termcolors=256
+
 colorscheme solarized
+let g:solarized_bold = 1
+let g:solarized_italic = 1
+let g:solarized_underline = 1
+
+
+" let g:solarized_degrade=1
+
 " colorscheme Tomorrow-Night
 " set background=dark
 " colorscheme spacegray
+
+" colorscheme Peacock
+" colorscheme Halflife
 
 set t_Co=256
 "highlight Normal ctermbg=NONE
