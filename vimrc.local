@@ -3,7 +3,6 @@
 set linespace=3
 set mouse-=a
 noremap <leader>W :w !sudo tee %<CR>
-
 """""""""""""""""""""""""""""""""""""""""""""""
 ""  mydarxym@qq.com
 ""
@@ -124,8 +123,7 @@ set guifont=Monaco:h13
 
 " mydearxym
 set showtabline=0
-"粘贴时不置换“剪贴板”
-xnoremap p pgvy
+""粘贴时不置换“剪贴板”"
 
 imap <c-/> :fuck
 imap <c-u> <Esc>:undo<cr>a
