@@ -356,6 +356,16 @@ let g:syntastic_check_on_wq = 0
 
 let g:syntastic_check_on_open = 0
 let g:SyntasticToggleMode=1
+
+function! HasConfig(file, dir)
+    return findfile(a:file, escape(a:dir, ' ') . ';') !=# ''
+endfunction
+
+autocmd BufNewFile,BufReadPre *.js  let b:syntastic_checkers =
+    \ HasConfig('.eslintrc', expand('<amatch>:h')) ? ['eslint'] :
+    \ HasConfig('.jshintrc', expand('<amatch>:h')) ? ['jshint'] :
+    \     ['standard']
+
 nmap <leader>c :SyntasticCheck<cr>
 nmap <leader>C :SyntasticToggleMode<cr>
 

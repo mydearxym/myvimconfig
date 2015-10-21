@@ -1,5 +1,7 @@
 Bundle 'bling/vim-airline'
 "Plugin 'itchyny/lightline.vim'
+Plugin 'scrooloose/syntastic'
+
 Plugin 'mattn/emmet-vim'
 Bundle 'jistr/vim-nerdtree-tabs'
 Plugin 'burnettk/vim-angular'
