@@ -1,13 +1,145 @@
-snippet log
-console.log("$1");
+
+snippet ppcs
+$1: PropTypes.string,
+endsnippet
+
+snippet ppcsr
+$1: PropTypes.string.isRequired,
+endsnippet
+
+snippet ppco
+$1: PropTypes.object,
+endsnippet
+
+snippet ppcor
+$1: PropTypes.object.isRequired,
+endsnippet
+
+snippet ppcf
+$1: PropTypes.func,
+endsnippet
+
+snippet ppcfr
+$1: PropTypes.func.isRequired,
+endsnippet
+
+snippet ppca
+$1: PropTypes.array,
+endsnippet
+
+snippet ppcn
+$1: PropTypes.number,
+endsnippet
+
+snippet ppcb
+$1: PropTypes.bool,
+endsnippet
+
+snippet ppce
+$1: PropTypes.oneOfType([]),
+endsnippet
+
+snippet dg
+global.$1 = $1
+endsnippet
+
+snippet du
+const $1_URL = \`${MUZHI_API}/\`
+endsnippet
+
+snippet cl
+  console.log('$1')
+endsnippet
+
+snippet ecc
+export const $1 = '$1'
+endsnippet
+
+snippet np
+return new Promise((resolve, reject) => {
+
+})
+endsnippet
+
+
+snippet fg
+fetch($1, { method: 'get', body: JSON.stringify({
+   '': '',
+   '': ''})
+})
+endsnippet
+
+snippet fp
+fetch($1, { method: 'post', body: JSON.stringify({
+   '': '',
+   '': ''})
+})
+endsnippet
+
+snippet cx
+classNames({
+  '$1': ,
+})
 endsnippet
 
 snippet info
-console.info("$1");
+console.info('$1');
 endsnippet
 
-snippet error
-console.error("$1");
+snippet logi
+log.info('$1')
+endsnippet
+
+snippet logs
+log.stringify('$1')
+endsnippet
+
+snippet div
+<div>$1</div>
+endsnippet
+
+snippet divc
+<div className="$1"></div>
+endsnippet
+
+snippet onchange
+onChange={::this.on$1} 
+endsnippet
+
+snippet onclick
+onClick={::this.on$1} 
+endsnippet
+
+snippet et
+e.target.$1
+endsnippet
+
+snippet etv
+e.target.value
+endsnippet
+
+snippet tS
+this.state.
+endsnippet
+
+snippet tss
+this.setState({
+  $1: ,
+})
+endsnippet
+
+snippet sto
+setTimeout(() => {
+  log.info('timeout' + $1)
+}, 500)
+endsnippet
+
+snippet span
+<span>$1</span>
+endsnippet
+
+snippet loge
+log.error('$1');
 endsnippet
 
 snippet cdm "component did mount"

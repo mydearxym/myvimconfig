@@ -11,6 +11,10 @@ noremap <leader>W :w !sudo tee %<CR>
 ""
 """"""""""""""""""""""""""""""""""""""""""""""
 
+"""""""""""" Nerdtree git plugin"""""
+
+
+""""""""""""""""""""""""""""""""""""
 
 " golden window
 " 1. split to tiled windows
@@ -34,7 +38,7 @@ map F <Plug>(clever-f-F)
 " let g:UltiSnipsJumpForwardTrigger = "<tab>"
 " let g:UltiSnipsJumpBackwardTrigger = "<s-tab>""
 
-let g:UltiSnipsExpandTrigger="<c-]>""
+let g:UltiSnipsExpandTrigger="nn"
 
 """"""""""""""""""""""""""""""""""""""""""""""
 
@@ -119,7 +123,6 @@ set guifont=Monaco:h13
 " javascript syntax
 "hi Identifier guifg=red
 "hi Function guifg=red
-"let g:used_javascript_libs = 'underscore,angularjs,react'
 
 " mydearxym
 set showtabline=0
@@ -323,8 +326,10 @@ nnoremap <c-c><c-b> :CtrlPBuffer<CR>
 imap <c-x><c-b> <Esc>:CtrlPBuffer<CR>
 imap <c-c><c-b> <Esc>:CtrlPBuffer<CR>
 
-nmap <leader>d <Esc>:NERDTreeToggle<cr>
+" nmap <leader>d <Esc>:NERDTreeToggle<cr>
+nmap <leader>d <Esc>:NERDTreeTabsToggle<cr>
 nmap <leader>f <Esc>:NERDTreeFind<CR>
+" nmap <leader>f <Esc>:NERDTreeTabsFind<CR>
 noremap <leader>A :Align
 " imap <leader>f <Esc>:NERDTreeFind<CR>
 nnoremap <c-c><c-o> :Ag<space>
@@ -388,9 +393,8 @@ let g:jsx_ext_required = 0
 let g:used_javascript_libs = 'underscore,requirejs,react,angularjs,angularui,jasmine,jquery'
 autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 1
 autocmd BufReadPre *.js let b:javascript_lib_use_underscore = 1
-autocmd BufReadPre *.js let b:javascript_lib_use_backbone = 1
-autocmd BufReadPre *.js let b:javascript_lib_use_prelude = 1
 autocmd BufReadPre *.js let b:javascript_lib_use_angularjs = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_react = 1
 
 """"""""""""""""""""""""" Emacs like binding """"""""""""""""""""""
 " nmap <c-/> <Esc>:undo<CR>
