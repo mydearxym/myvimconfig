@@ -1,4 +1,8 @@
 
+snippet tell
+dispatch({ type: constants.$1, })
+endsnippet
+
 snippet ppcs
 $1: PropTypes.string,
 endsnippet
@@ -61,6 +65,22 @@ return new Promise((resolve, reject) => {
 })
 endsnippet
 
+snippet get
+let query = { '':   }
+get($1_URL, query)
+  .then(res => { } )
+  .catch(err => { } )
+endsnippet
+
+snippet post
+let query = {
+  '':  ,
+}
+
+post($1_URL, query)
+  .then(res => { } )
+  .catch(err => { } )
+endsnippet
 
 snippet fg
 fetch($1, { method: 'get', body: JSON.stringify({
