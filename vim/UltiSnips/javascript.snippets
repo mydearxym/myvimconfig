@@ -1,6 +1,132 @@
 
+snippet store
+const { store } = this.context
+
+store.dispatch(actions.$1)
+endsnippet
+
+snippet tooltip
+<Tooltip placement="top" title={$1}>
+  {$1}
+</Tooltip>
+endsnippet
+
+snippet popover
+<Popover placement="top" title={text} overlay={$1} trigger="click">
+  {$1}
+</Popover>
+endsnippet
+
+snippet fn
+$1[0, randomNum(0, $1.length)],
+endsnippet
+
+snippet newC
+import styles from './_$1.scss'
+
+@CSSModules(styles, { allowMultiple: true })
+export default class TagList extends React.Component {
+  static propTypes = {
+    location: PropTypes.object,
+  }
+
+  static contextTypes = {
+    store: PropTypes.any,
+  }
+
+  constructor (props) {
+    super(props)
+    this.state = {
+
+    }
+  }
+
+  componentDidMount () {
+    const { store } = this.context
+  }
+
+  render () {
+    const  = this.props.
+
+    return (
+      <div styleName="main">
+
+      </div>
+    )
+  }
+}
+endsnippet
+
+
+snippet fk
+export function $1 (cnt) {
+  let fakeData = []
+
+  _times(cnt, () => {
+    fakeData.push({
+      members: __fakeUsers(10)
+    })
+  })
+
+  return fakeData
+}
+endsnippet
+
+snippet rowcol
+<div className="row">
+  <div className="col-md-$1">
+
+  </div>
+  <div className="col-md-$1">
+
+  </div>
+</div>
+endsnippet
+
+snippet map
+{ _isEmpty($1) ? '' : $1.map((item, i) => (
+  <div key={i}>
+
+  </div>
+))}
+
+endsnippet
+
+snippet rdG
+return dispatch => {
+  get($1_URL)
+    // .then(res => log.ok('$1 Get', res))
+    .then(res => dispatch({ type: N.GET_$1 }))
+    .catch(err => { log.error('dispatch N.GET_$1 ') })
+}
+endsnippet
+
+snippet cdm "component did mount"
+componentDidMount () {
+  ${1}
+}
+endsnippet
+
+snippet condt
+<Cond value={value}>
+  {[ isTrue, <$1 key='c0' /> ]}
+  {[ isFalse, <$1 key='c1' /> ]}
+  {[ otherwise, <$1 key='2' /> ]}
+</Cond>
+endsnippet
+
+snippet condeq
+<Cond value={this.state.$1}>
+  {[ eq(), < /> ]}
+</Cond>
+endsnippet
+
+snippet ck
+debugger
+endsnippet
+
 snippet tell
-dispatch({ type: constants.$1, })
+dispatch({ type: N.$1, })
 endsnippet
 
 snippet ppcs
@@ -68,8 +194,8 @@ endsnippet
 snippet get
 let query = { '':   }
 get($1_URL, query)
-  .then(res => { } )
-  .catch(err => { } )
+  .then(res => { })
+  .catch(err => { })
 endsnippet
 
 snippet post
@@ -78,8 +204,8 @@ let query = {
 }
 
 post($1_URL, query)
-  .then(res => { } )
-  .catch(err => { } )
+  .then(res => { })
+  .catch(err => { })
 endsnippet
 
 snippet fg
@@ -110,8 +236,16 @@ snippet logi
 log.info('$1')
 endsnippet
 
-snippet logs
-log.stringify('$1')
+snippet logb
+log.brown('$1')
+endsnippet
+
+snippet logo
+log.ok('$1')
+endsnippet
+
+snippet loge
+log.error('$1')
 endsnippet
 
 snippet div
@@ -157,18 +291,4 @@ endsnippet
 snippet span
 <span>$1</span>
 endsnippet
-
-snippet loge
-log.error('$1');
-endsnippet
-
-snippet cdm "component did mount"
-componentDidMount: function() {
-  ${1}
-},$0
-endsnippet
-
-
-
-
 

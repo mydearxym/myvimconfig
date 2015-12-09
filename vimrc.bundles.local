@@ -2,6 +2,10 @@ Bundle 'bling/vim-airline'
 "Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/syntastic'
 
+Bundle 'xolox/vim-session'
+Plugin 'godlygeek/tabular'
+
+
 Plugin 'mattn/emmet-vim'
 Plugin 'burnettk/vim-angular'
 Bundle 'Raimondi/delimitMate'
@@ -66,6 +70,5 @@ Bundle 'zhaocai/GoldenView.Vim'
 
 Bundle "daylerees/colour-schemes", { "rtp": "vim/" }
 Bundle "altercation/vim-colors-solarized"
-
 
 

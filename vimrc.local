@@ -13,8 +13,20 @@ noremap <leader>W :w !sudo tee %<CR>
 
 """""""""""" Nerdtree git plugin"""""
 
+" vim sessiong
+let g:session_autosave = 'no'
+nmap <silent> <leader>s :SaveSession<CR>
+nmap <silent> <leader>o :OpenSession<CR>
+nmap <silent> <leader>R :RestartVim<CR>
+
 
 """"""""""""""""""""""""""""""""""""
+
+
+"" Tabularize
+vmap <leader>t :Tabularize /=<CR>
+vmap <leader>T :Tabularize /:<CR>
+
 
 " golden window
 " 1. split to tiled windows
@@ -108,15 +120,15 @@ if v:version >= 700
 endif
 
 
-if has("gui_running")
-  if has("gui_gtk2")
-    set guifont=Inconsolata\ 12
-  elseif has("gui_macvim")
-    set guifont=Monaco\ Regular:h14
-  elseif has("gui_win32")
-    set guifont=Consolas:h11:cANSI
-  endif
-endif
+" if has("gui_running")
+"   if has("gui_gtk2")
+"     set guifont=Inconsolata\ 12
+"   elseif has("gui_macvim")
+"     set guifont=Monaco\ Regular:h14
+"   elseif has("gui_win32")
+"     set guifont=Consolas:h11:cANSI
+"   endif
+" endif
 
 set guifont=Monaco:h13
 
