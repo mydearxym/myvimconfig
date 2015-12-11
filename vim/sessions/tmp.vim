@@ -1,6 +1,6 @@
-" ~/code/maximum-awesome/vim/sessions/default.vim:
+" ~/code/maximum-awesome/vim/sessions/tmp.vim:
 " Vim session script.
-" Created by session.vim 2.13.1 on 11 十二月 2015 at 11:44:31.
+" Created by session.vim 2.13.1 on 10 十二月 2015 at 21:54:27.
 " Open this file in Vim and run :source % to restore your session.
 
 set guioptions=gmrL
@@ -19,48 +19,21 @@ if &cp | set nocp | endif
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd ~/code/muzhi_react2
+cd ~/
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +28 app/actions/manager/channels.js
-badd +104 app/utils/constants.js
-badd +70 app/reducers/manager/channels.js
-badd +369 app/components/manager/channels/Channels.js
-badd +125 app/components/manager/channels/ChannelDetail.js
-badd +203 app/components/manager/channels/Chatrooms.js
-badd +71 app/components/manager/channels/Managers.js
-badd +111 app/components/shared/ChatroomForm.js
-badd +205 app/components/shared/SearchUser.js
-badd +45 app/components/shared/FileUploader.js
-badd +91 app/reducers/manager/rooms.js
+badd +9 .vimrc.bundles.local
 argglobal
 silent! argdel *
-edit app/components/shared/SearchUser.js
+argadd .vimrc.bundles.local
+edit .vimrc.bundles.local
 set splitbelow splitright
-wincmd _ | wincmd |
-vsplit
-1wincmd h
-wincmd w
 set nosplitbelow
 set nosplitright
 wincmd t
 set winheight=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 31 + 62) / 124)
-exe 'vert 2resize ' . ((&columns * 92 + 62) / 124)
-argglobal
-enew
-" file NERD_tree_1
-setlocal fdm=manual
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal nofen
-wincmd w
 argglobal
 setlocal fdm=manual
 setlocal fde=0
@@ -71,16 +44,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 29 - ((28 * winheight(0) + 23) / 47)
+let s:l = 12 - ((6 * winheight(0) + 20) / 40)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-29
-normal! 05|
-wincmd w
-2wincmd w
-exe 'vert 1resize ' . ((&columns * 31 + 62) / 124)
-exe 'vert 2resize ' . ((&columns * 92 + 62) / 124)
+12
+normal! 0
 tabnext 1
 if exists('s:wipebuf')
 "   silent exe 'bwipe ' . s:wipebuf
@@ -98,19 +67,6 @@ let &so = s:so_save | let &siso = s:siso_save
 " by :mksession out of the box).
 
 1wincmd w
-tabnext 1
-let s:bufnr_save = bufnr("%")
-let s:cwd_save = getcwd()
-NERDTree ~/code/muzhi_react2
-if !getbufvar(s:bufnr_save, '&modified')
-  let s:wipebuflines = getbufline(s:bufnr_save, 1, '$')
-  if len(s:wipebuflines) <= 1 && empty(get(s:wipebuflines, 0, ''))
-    silent execute 'bwipeout' s:bufnr_save
-  endif
-endif
-execute "cd" fnameescape(s:cwd_save)
-1resize 47|vert 1resize 31|2resize 47|vert 2resize 92|
-2wincmd w
 tabnext 1
 if exists('s:wipebuf')
   if empty(bufname(s:wipebuf))
