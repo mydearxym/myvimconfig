@@ -1,8 +1,8 @@
 
 
 set linespace=3
-set mouse-=a
 noremap <leader>W :w !sudo tee %<CR>
+set mouse-=a
 """""""""""""""""""""""""""""""""""""""""""""""
 ""  mydarxym@qq.com
 ""
@@ -13,6 +13,12 @@ noremap <leader>W :w !sudo tee %<CR>
 "  :vColor ---> color picker
 """""""""""" Nerdtree git plugin"""""
 
+" mark
+nmap <leader>L :MarkClear<CR>
+
+" replace " --> '
+nmap <leader>' :%s/"/'/g<CR>
+
 " vim sessiong
 let g:session_autosave = 'no'
 nmap <silent> <leader>s :SaveSession<CR>
@@ -21,11 +27,13 @@ nmap <silent> <leader>o :OpenSession<CR>
 nmap <silent> <leader>R :RestartVim<CR>
 
 " search
-nmap : :<F12>
-nmap / /<F12>
-cmap <F12> <Plug>(Cmd2Suggest)
+" nmap : :<F12>
+" nmap / /<F12>
+" cmap <F12> <Plug>(Cmd2Suggest)
 
-
+" toogle words
+" true'=>'false', 'True'=>'False', 'if'=>'elseif'=>'else'=>'endif' etc .
+nmap <leader>t :ToggleWord<CR>
 
 
 " scratch
@@ -38,9 +46,9 @@ let g:gtfo#terminals = { 'mac' : 'iterm' }
 """"""""""""""""""""""""""""""""""""
 
 " move up / down
-let g:move_key_modifier = 'C'
-" <C-k>   Move current line/selections up
-" <C-j>   Move current line/selections down
+" <D-k>   Move current line/selections up
+" <D-j>   Move current line/selections down
+let g:move_key_modifier = 'D'
 
 "" f highlight
 let g:qs_highlight_on_keys = ['f', 'F']
@@ -54,7 +62,7 @@ let g:exchange_no_mappings=1
 nmap t <Plug>(Exchange)
 " vmap X <Plug>(Exchange)
 nmap tc <Plug>(ExchangeClear)
-nmap T <Plug>(ExchangeLine)
+" nmap T <Plug>(ExchangeLine)
 
 
 "" advance repeat 可以用数字前缀
@@ -86,7 +94,7 @@ let g:UltiSnipsExpandTrigger="gg"
 
 """"""""""""""""""""""""""""""""""""""""""""""
 
-nmap <leader>n :Note<space>
+" nmap <leader>n :Note<space>
 
 """""""""""""""""""""" Buffer navigatior """""""""""""""""""""""""
 
@@ -110,25 +118,9 @@ let g:indent_guides_guide_size=1
 nmap <leader>i :IndentGuidesToggle<cr>
 
 " asterisk *
-let g:asterisk#keeppos = 1
-map *  <Plug>(asterisk-z*)
-map #  <Plug>(asterisk-z#)
-
-" emacs-like search
-" map /  <Plug>(incsearch-forward)
-" map ?  <Plug>(incsearch-backward)
-" map g/ <Plug>(incsearch-stay)
-" nnoremap <Esc><Esc> :<C-u>nohlsearch<CR>
-" let g:incsearch#auto_nohlsearch = 1
-" map n  <Plug>(incsearch-nohl-n)
-" map N  <Plug>(incsearch-nohl-N)
-" map g* <Plug>(incsearch-nohl-g*)
-" map g# <Plug>(incsearch-nohl-g#)
-
-"hightlight
-syn keyword Myfunctions self func_name2
-highlight Myfunctions guifg=red
-
+" let g:asterisk#keeppos = 1
+" map *  <Plug>(asterisk-z*)
+" map #  <Plug>(asterisk-z#)
 
 "snippet tirgger
 
@@ -178,7 +170,7 @@ map <c-u> :undo<cr>
 "buffer switch
 
 " nmap <c-[>  :bp<cr>
-nmap <c-]>  :b#<cr> " for terminal
+" nmap <c-]>  :b#<cr> " for terminal
 nmap <S-Enter> :b#<cr>
 imap <S-Enter> <Esc>:b#<cr>a
 " expand-region
@@ -189,7 +181,7 @@ set foldmethod=manual
 "==== indentline
 
 "==== tmuxify
-let g:tmuxify_map_prefix = '<leader>t'
+" let g:tmuxify_map_prefix = '<leader>t'
 
 "==== snipMate
 au BufRead,BufNewFile *.exs setl ft=elixir
@@ -203,18 +195,8 @@ augroup END
 
 "=== javascript
 let g:tagbar_type_javascript = {'ctagsbin' : '/usr/local/bin/jsctags'}
-
 let g:matchmaker_enable_startup = 1
-" set updatetime=500
-" function! HighlightWordUnderCursor()
-"     if getline(".")[col(".")-1] !~# '[[:punct:][:blank:]]'
-"         exec 'match' 'Search' '/\V\<'.expand('<cword>').'\>/'
-"     else
-"         match none
-"     endif
-" endfunction
 
-" autocmd! CursorHold,CursorHoldI * call HighlightWordUnderCursor()
 
 " ===== ctrlspace
 let g:ctrlspace_default_mapping_key='<c-c><c-p>'
@@ -326,7 +308,8 @@ nmap <leader>, <Plug>(easymotion-sn)
 "nmap gg <Plug>(easymotion-sn)
 
 "==== highlight word
-let g:interestingWordsRandomiseColors = 1
+" let g:interestingWordsRandomiseColors = 1
+
 nmap <leader>l :nohl<cr>
 imap <leader>l <Esc>:nohl<cr>a
 " imap <leader>, <Esc><leader>ma
@@ -382,7 +365,7 @@ nnoremap <c-c><c-o> :Ag<space>
 " imap <c-x><c-f> <Esc>:CtrlPClearCache<CR>:CtrlP<CR>
 " imap <c-c><c-f> <Esc>:CtrlPClearCache<CR>:CtrlP<CR>
 
-nnoremap <leader>t :TagbarToggle<CR>
+" nnoremap <leader>t :TagbarToggle<CR>
 nnoremap <leader><space> :call whitespace#strip_trailing()<CR>
 "nnoremap <leader>G :GitGutterToggle<CR>
 let g:gitgutter_sign_column_always = 1
@@ -514,7 +497,7 @@ vmap <c-e> <End>
 vmap <c-g> <Esc><Esc>
 
 "inoremap <leader>w :w!<cr> "快速保存
-nmap <leader>L :highlight LineNr ctermfg=grey<cr>
+" nmap <leader>L :highlight LineNr ctermfg=grey<cr>
 nmap <c-f> <right>
 nmap <c-b> <left>
 " nmap <c-n> <down>

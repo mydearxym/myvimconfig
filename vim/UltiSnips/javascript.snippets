@@ -1,3 +1,8 @@
+snippet will
+componentWillReceiveProps (nextProps) {
+
+}
+endsnippet
 
 snippet store
 const { store } = this.context
@@ -83,6 +88,17 @@ snippet rowcol
 </div>
 endsnippet
 
+snippet RC
+<Row>
+  <Col span="$1">
+  </Col>
+
+  <Col span="$1">
+  </Col>
+</Row>
+
+endsnippet
+
 snippet map
 { _isEmpty($1) ? '' : $1.map((item, i) => (
   <div key={i}>
@@ -98,6 +114,15 @@ return dispatch => {
     // .then(res => log.ok('$1 Get', res))
     .then(res => dispatch({ type: N.GET_$1 }))
     .catch(err => { log.error('dispatch N.GET_$1 ') })
+}
+endsnippet
+
+snippet rdp
+return dispatch => {
+  _post($1_URL, query)
+    // .then(res => log.ok('$1 post ret', res))
+    .then(res => dispatch({ type: N.GET_$1 }))
+    .catch(err => { log.error('dispatch N.POST_$1 ') })
 }
 endsnippet
 
