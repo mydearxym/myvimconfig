@@ -10,8 +10,26 @@ set mouse-=a
 ""
 ""
 """"""""""""""""""""""""""""""""""""""""""""""
+" FOO_BAR true
+nmap <leader>ts crs
+nmap <leader>tc crc
+nmap <leader>tu cru
+
+" search
+let g:oblique#clear_highlight=0
+let g:oblique#incsearch_highlight_all=1
+
+" rainbow color --> not work
+let g:rainbow_active=0
+nmap <leader>R :RainbowToggle<cr>
+
+
 "  :vColor ---> color picker
 """""""""""" Nerdtree git plugin"""""
+let g:NERDTreeWinPos = "right"
+" nmap <leader>d <Esc>:NERDTreeToggle<cr>
+nmap <leader>d <Esc>:NERDTreeToggle<cr>
+nmap <leader>f <Esc>:NERDTreeFind<CR>
 
 " mark
 nmap <leader>L :MarkClear<CR>
@@ -24,7 +42,7 @@ let g:session_autosave = 'no'
 nmap <silent> <leader>s :SaveSession<CR>
 nmap <silent> <leader>S :SaveSession tmp
 nmap <silent> <leader>o :OpenSession<CR>
-nmap <silent> <leader>R :RestartVim<CR>
+" nmap <silent> <leader>R :RestartVim<CR>
 
 " search
 " nmap : :<F12>
@@ -33,7 +51,7 @@ nmap <silent> <leader>R :RestartVim<CR>
 
 " toogle words
 " true'=>'false', 'True'=>'False', 'if'=>'elseif'=>'else'=>'endif' etc .
-nmap <leader>t :ToggleWord<CR>
+nmap <leader>T :ToggleWord<CR>
 
 
 " scratch
@@ -109,8 +127,8 @@ set diffopt=filler
 set noerrorbells " Disable error bells"
 set mouse=a " Enable mouse in all in all modes"
 set title " Show the filename in the window titlebar"
-nnoremap <leader>R :%s/\<<C-r><C-w>\>//<Left>
-vnoremap <leader>R "hy:%s/\V<C-r>h//<left>"
+" nnoremap <leader>R :%s/\<<C-r><C-w>\>//<Left>
+" vnoremap <leader>R "hy:%s/\V<C-r>h//<left>"
 
 " indent
 let g:indent_guides_start_level=1
@@ -352,10 +370,6 @@ nnoremap <c-c><c-b> :CtrlPBuffer<CR>
 imap <c-x><c-b> <Esc>:CtrlPBuffer<CR>
 imap <c-c><c-b> <Esc>:CtrlPBuffer<CR>
 
-" nmap <leader>d <Esc>:NERDTreeToggle<cr>
-nmap <leader>d <Esc>:NERDTreeTabsToggle<cr>
-nmap <leader>f <Esc>:NERDTreeFind<CR>
-" nmap <leader>f <Esc>:NERDTreeTabsFind<CR>
 noremap <leader>A :Align
 " imap <leader>f <Esc>:NERDTreeFind<CR>
 nnoremap <c-c><c-o> :Ag<space>
