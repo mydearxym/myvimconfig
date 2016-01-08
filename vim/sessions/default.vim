@@ -1,10 +1,10 @@
 " ~/code/maximum-awesome/vim/sessions/default.vim:
 " Vim session script.
-" Created by session.vim 2.13.1 on 24 十二月 2015 at 06:14:13.
+" Created by session.vim 2.13.1 on 08 一月 2016 at 17:17:05.
 " Open this file in Vim and run :source % to restore your session.
 
 set guioptions=gmrL
-silent! set guifont=Monaco:h13
+silent! set guifont=Monaco:h15
 if exists('g:syntax_on') != 1 | syntax on | endif
 if exists('g:did_load_filetypes') != 1 | filetype on | endif
 if exists('g:did_load_ftplugin') != 1 | filetype plugin on | endif
@@ -13,31 +13,85 @@ if &background != 'dark'
 	set background=dark
 endif
 if !exists('g:colors_name') || g:colors_name != 'solarized' | colorscheme solarized | endif
-call setqflist([{'lnum': 24, 'col': 0, 'valid': 1, 'vcol': 0, 'nr': -1, 'type': '', 'pattern': '', 'filename': '/Users/xieyiming/.vimrc.local', 'text': 'empty line'}, {'lnum': 486, 'col': 0, 'valid': 1, 'vcol': 0, 'nr': -1, 'type': '', 'pattern': '', 'filename': 'ChatroomTemplate/ChatroomTemplate.js', 'text': '                  hourOptions={this.state.chn_room_time_hourend_options}'}, {'lnum': 550, 'col': 0, 'valid': 1, 'vcol': 0, 'nr': -1, 'type': '', 'pattern': '', 'filename': 'ChatroomTemplate/ChatroomTemplate.js', 'text': '                      <Timepicker placeholder="结束时间"'}])
+call setqflist([])
 let SessionLoad = 1
 if &cp | set nocp | endif
 let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
 let v:this_session=expand("<sfile>:p")
 silent only
-cd ~/code/muzhi_react2/app/components/chatrooms
+cd ~/code/muzhi_react2
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +243 index.js
-badd +329 ChatroomTemplate/ChatroomTemplate.js
-badd +28 ~/code/muzhi_react2/app/actions/chatrooms.js
-badd +20 _chatrooms.scss
-badd +183 ~/code/muzhi_react2/app/components/assets/shared/index.scss
-badd +108 ~/code/muzhi_react2/app/utils/global.js
+badd +68 app/components/user/User.js
+badd +2 app/components/user/_user.scss
+badd +5 webpack.config.js
+badd +78 app/components/chatroom/index.js
+badd +143 app/components/chatrooms/ManagedRooms.js
+badd +9 app/components/chatroom/Chatroom.js
+badd +44 app/components/chatroom/_chatroom.scss
+badd +7 app/index.js
+badd +1 app/init.js
+badd +80 app/components/chatrooms/Sidebar/Sidebar.js
+badd +153 app/components/chatrooms/Sidebar/NewsBox.js
+badd +81 app/components/chatrooms/Sidebar/ChatBox.js
+badd +340 app/components/chatroom/VoteTab.js
+badd +1 app/components/chatroom/_voteTab.scss
+badd +4 app/components/chatrooms/_chatrooms.scss
+badd +135 app/components/chatroom/ActivityTab.js
+badd +71 app/components/chatroom/_activityTab.scss
+badd +68 app/components/chatroom/TalkTab.js
+badd +335 app/components/manager/users/Users.js
+badd +41 app/actions/manager/users.js
+badd +142 app/reducers/manager/users.js
+badd +4 app/components/manager/stream/Streams.js
+badd +20 app/components/chatroom/_talkTab.scss
+badd +115 app/components/chatroom/TopicTab.js
+badd +27 app/components/chatroom/_topicTab.scss
+badd +77 app/components/chatroom/DashTab.js
+badd +44 app/actions/chatrooms.js
+badd +84 app/components/manager/rooms/Rooms.js
+badd +214 app/components/chatrooms/ChatroomVote/ChatroomVote.js
+badd +145 app/components/chatroom/VoteDetail.js
+badd +52 app/components/chatroom/_voteDetail.scss
+badd +267 app/components/manager/rooms/RoomDetail.js
+badd +38 app/actions/manager/rooms.js
+badd +90 app/components/manager/rooms/_roomDetail.scss
+badd +2 app/actions/application.js
+badd +285 app/components/chatroom/VoteForm.js
+badd +34 app/components/chatrooms/ChatroomVote/_chatroomVote.scss
+badd +1 app/components/chatroom/_voteForm.scss
+badd +28 app/components/chatroom/PreviewOnPhone.js
+badd +55 app/components/chatroom/_previewOnPhone.scss
+badd +15 app/components/assets/shared/index.scss
+badd +44 app/utils/global.js
 argglobal
 silent! argdel *
-edit ChatroomTemplate/ChatroomTemplate.js
+edit app/components/chatroom/VoteTab.js
 set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
 set nosplitbelow
 set nosplitright
 wincmd t
 set winheight=1 winwidth=1
+exe 'vert 1resize ' . ((&columns * 25 + 64) / 129)
+exe 'vert 2resize ' . ((&columns * 103 + 64) / 129)
+argglobal
+enew
+" file NERD_tree_2
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal nofen
+wincmd w
 argglobal
 setlocal fdm=manual
 setlocal fde=0
@@ -48,18 +102,22 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 252 - ((10 * winheight(0) + 20) / 40)
+let s:l = 294 - ((22 * winheight(0) + 20) / 40)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-252
-normal! 05|
+294
+normal! 0
+wincmd w
+2wincmd w
+exe 'vert 1resize ' . ((&columns * 25 + 64) / 129)
+exe 'vert 2resize ' . ((&columns * 103 + 64) / 129)
 tabnext 1
 if exists('s:wipebuf')
 "   silent exe 'bwipe ' . s:wipebuf
 endif
 " unlet! s:wipebuf
-set winheight=31 winwidth=85 shortmess=atIc
+set winheight=26 winwidth=79 shortmess=atIc
 let s:sx = expand("<sfile>:p:r")."x.vim"
 if file_readable(s:sx)
   exe "source " . fnameescape(s:sx)
@@ -71,6 +129,19 @@ let &so = s:so_save | let &siso = s:siso_save
 " by :mksession out of the box).
 
 1wincmd w
+tabnext 1
+let s:bufnr_save = bufnr("%")
+let s:cwd_save = getcwd()
+NERDTree ~/code/muzhi_react2
+if !getbufvar(s:bufnr_save, '&modified')
+  let s:wipebuflines = getbufline(s:bufnr_save, 1, '$')
+  if len(s:wipebuflines) <= 1 && empty(get(s:wipebuflines, 0, ''))
+    silent execute 'bwipeout' s:bufnr_save
+  endif
+endif
+execute "cd" fnameescape(s:cwd_save)
+1resize 40|vert 1resize 25|2resize 40|vert 2resize 103|
+2wincmd w
 tabnext 1
 if exists('s:wipebuf')
   if empty(bufname(s:wipebuf))

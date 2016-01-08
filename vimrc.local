@@ -1,5 +1,4 @@
 
-
 set linespace=3
 noremap <leader>W :w !sudo tee %<CR>
 set mouse-=a
@@ -10,11 +9,20 @@ set mouse-=a
 ""
 ""
 """"""""""""""""""""""""""""""""""""""""""""""
+" bookmark
+let g:bookmark_save_per_working_dir = 1
+let g:bookmark_auto_save = 1
+
+" ferret --> ag  search
+nmap <leader>a :Lack<space>
+
 " FOO_BAR true
 nmap <leader>ts crs
 nmap <leader>tc crc
 nmap <leader>tu cru
 
+nmap <leader>q :q<cr>
+nmap <leader>1 :only<cr>
 " search
 let g:oblique#clear_highlight=0
 let g:oblique#incsearch_highlight_all=1
@@ -26,7 +34,7 @@ nmap <leader>R :RainbowToggle<cr>
 
 "  :vColor ---> color picker
 """""""""""" Nerdtree git plugin"""""
-let g:NERDTreeWinPos = "right"
+let g:NERDTreeWinPos = "left"
 " nmap <leader>d <Esc>:NERDTreeToggle<cr>
 nmap <leader>d <Esc>:NERDTreeToggle<cr>
 nmap <leader>f <Esc>:NERDTreeFind<CR>
@@ -526,8 +534,7 @@ nmap <c-e> <End>
 
 " 光标到达行尾或者行首时，特定键继续移动转至下一行或上一行
 set whichwrap+=b,s,<,>,[,]"
-set expandtab               " Use spaces instead of tabs"
-"set listchars=tab:\|\ ,     " 显示Tab符，使用一高亮竖线代替"
+
 set autoindent      " always set autoindenting on
 set smartindent
 set mps+=<:>        " 让<>可以使用%跳转
@@ -558,6 +565,12 @@ set autoread
 "use . command in virual mode
 vnoremap . :norm.<CR>
 
+set expandtab               " Use spaces instead of tabs"
+set shiftwidth=2
+set tabstop=2
+set listchars=tab:\|\ ,     " 显示Tab符，使用一高亮竖线代替"
+
+nmap <c-t> :%!expand -t2<CR>
 
 map <c-x><c-k> :Bclose<cr>
 imap <c-x><c-k> <Esc>:Bclose<cr>

@@ -1,3 +1,15 @@
+snippet should
+shouldComponentUpdate: function(nextProps, nextState) {
+  return nextProps.id !== this.props.id;
+}
+endsnippet
+
+snippet spin
+<Spin spining={$1} size="small">
+</Spin>
+
+endsnippet
+
 snippet will
 componentWillReceiveProps (nextProps) {
 
